@@ -4,7 +4,7 @@ import { Controller, Get } from '@nestjs/common';
 export class AppController {
 
   @Get()
-  getHello(): boolean {
-    return true;
+  getHello(): string {
+    return "Сервис работает, наверно...";
   }
 }
