@@ -1,27 +1,29 @@
 import { ApiPropertyOptional } from '@nestjs/swagger';
-import { IsEnum, IsNumberString, IsOptional, IsString, IsBoolean } from 'class-validator';
-import { SortType } from '../cinema.service';
+import { IsEnum, IsNumberString, IsOptional, IsString, IsDateString } from 'class-validator';
+import { MovieFormat } from '../models/movie_format.emun';
+import { SortType } from 'src/cinema/cinema.service';
 
-export class SearchCinemaOptions {
-  @ApiPropertyOptional({ type: 'string', description: 'Название или часть названия кинотеатра' })
+export class SearchSessionOptions {
+  
+  @IsDateString()
   @IsOptional()
-  @IsString()
-  cinema_name?: string;
+  @ApiPropertyOptional({ type: 'datetime', description: 'Дата сеанса не позднее..' })
+  maxTime?: Date;
 
-  @ApiPropertyOptional({ type: 'number', minimum: 0, description: 'Максимальное количество залов' })
+  @ApiPropertyOptional({ type: 'number', minimum: 0, description: 'Максимальная цена билета' })
   @IsOptional()
   @IsNumberString()
-  maxAmount_of_halls?: number;
+  maxPrice?: number;
 
   @ApiPropertyOptional({ type: 'number', minimum: 0, description: 'Максимальное количество мест' })
   @IsOptional()
   @IsNumberString()
-  maxAmount_of_places?: number;
+  maxPlaces?: number;
 
-  @ApiPropertyOptional({ type: 'boolean', description: 'Наличие 3Д' })
+  @ApiPropertyOptional({ type: 'enum', enum: Object.values(MovieFormat), description: 'Формат видео' })
   @IsOptional()
-  @IsBoolean()
-  threeD?: boolean;
+  @IsEnum(MovieFormat)
+  movie_format?: MovieFormat;
 
   @ApiPropertyOptional({ type: 'string', description: 'Адрес кинотеатра' })
   @IsOptional()

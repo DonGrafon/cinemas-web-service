@@ -22,7 +22,7 @@ export class CinemaService {
   }
 
   getById(id: number): Observable<WebCinema> {
-    return from(this.cimRepo.findOneOrFail(id, { relations: ['cinemas'] }));
+    return from(this.cimRepo.findOneOrFail(id));
   }
 
   update(id: number, options: WebUpdateCinemaOptions): Observable<WebCinema> {
@@ -42,7 +42,6 @@ export class CinemaService {
       order: { id: options.sort || SortType.ASC },
       take: options.limit || 10,
       skip: options.offset || 0,
-      relations: ['cinemas'],
     }));
   }
 

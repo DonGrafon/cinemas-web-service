@@ -1,19 +1,20 @@
-import { Controller, HttpService, Body, Post, InternalServerErrorException, Get, Param, Query, NotFoundException, Delete, Put } from '@nestjs/common';
+import { Controller, Body, Post, InternalServerErrorException, Get, Param, Query, NotFoundException, Delete, Put } from '@nestjs/common';
 import { CinemaService } from './cinema.service';
 import { CreateCinemaOptions } from './options/create-cinema-options';
-import { Observable, zip, of } from 'rxjs';
-import { catchError, flatMap, map, first } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { WebCinema } from './models/webCinema.entity';
 import { SearchCinemaOptions } from './options/search-cinema-options';
-import { ApiOkResponse } from '@nestjs/swagger';
+import { ApiOkResponse, ApiTags } from '@nestjs/swagger';
 import { DeleteResult } from 'typeorm';
 import { UpdateCinemaOptions } from './options/update-cinema-options';
 
-@Controller('cinema')
+@ApiTags('cinemas')
+// @UseInterceptors(LoggingInterceptor)
+@Controller('cinemas')
 export class CinemaController {
 
-  constructor(private readonly cinemaService: CinemaService,
-              private readonly httpService: HttpService) {
+  constructor(private readonly cinemaService: CinemaService) {
   }
 
   @Get()

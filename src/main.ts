@@ -9,8 +9,8 @@ async function bootstrap() {
     .setTitle('Cinemas service / Karpechenko Alexey / 171-331')
     .setDescription('Документация к сервису "Справочник кинотеатров"')
     .setVersion('1.0')
-    .addTag('cinema')
-    .addTag('session')
+    .addTag('cinemas')
+    .addTag('sessions')
     .build();
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup('api', app, document);
