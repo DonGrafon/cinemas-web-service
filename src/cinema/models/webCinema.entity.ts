@@ -1,5 +1,5 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
-import { City } from './city.model';
+import { WebCity } from './WebCity.model';
 
 @Entity()
 export class WebCinema {
@@ -21,6 +21,6 @@ export class WebCinema {
   @Column({ type: 'varchar', nullable: false })
   adress: string;
 
-  @OneToMany(type => City, city => city.city_name, { onDelete: 'RESTRICT', cascade: true })
-  city_name: City;
+  @OneToMany(type => WebCity, WebCity => WebCity.WebCity_name, { onDelete: 'RESTRICT', cascade: true })
+  WebCity_name: WebCity;
 }
