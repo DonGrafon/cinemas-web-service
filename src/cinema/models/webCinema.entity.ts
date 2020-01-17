@@ -2,7 +2,7 @@ import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { City } from './city.model';
 
 @Entity()
-export class ICinema {
+export class WebCinema {
   @PrimaryGeneratedColumn({ type: 'int', unsigned: true })
   id: number;
 
