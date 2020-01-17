@@ -9,10 +9,10 @@ export class WebCinema {
   @Column({ type: 'varchar', nullable: false })
   cinema_name: string;
 
-  @Column({ type: 'int', nullable: false, unsigned: true, default: 1 })
+  @Column({ type: 'int', nullable: false, unsigned: true })
   amount_of_halls?: number;
 
-  @Column({ type: 'int', nullable: false, unsigned: true, default: 1 })
+  @Column({ type: 'int', nullable: false, unsigned: true })
   amount_of_places?: number;
 
   @Column({ type: 'boolean', nullable: false })
@@ -21,6 +21,7 @@ export class WebCinema {
   @Column({ type: 'varchar', nullable: false })
   adress: string;
 
-  @OneToMany(type => WebCity, WebCity => WebCity.WebCity_name, { onDelete: 'RESTRICT', cascade: true })
-  WebCity_name: WebCity;
+  // @OneToMany(type => WebCity, WebCity => WebCity.city_name, { onDelete: 'RESTRICT', cascade: true })
+  @Column({ type: 'varchar', nullable: false })
+  city_name: WebCity;
 }
