@@ -24,6 +24,6 @@ export class Session {
   @ManyToOne(type => Cinema, Cinema => Cinema.cinema_name)
   cinema_name: Cinema;
   
-  @ApiProperty({ type: WebMovie, nullable: false, example: 'Доктор Сон' })
-  movie_name: WebMovie;
+  @ApiProperty({ type: 'string', nullable: false, example: 'Доктор Сон' })
+  movie_name: string;
 }

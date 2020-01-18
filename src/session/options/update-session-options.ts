@@ -13,10 +13,10 @@ export class UpdateSessionOptions {
   readonly places?: number;
 
   @IsOptional()
-  @ApiPropertyOptional({ type: Cinema, nullable: false, example: 'Пять звезд' })
-  cinema_name?: Cinema;
+  @ApiPropertyOptional({ type: 'string', nullable: false, example: 'Пять звезд' })
+  cinema_name?: string;
   
   @IsOptional()
-  @ApiPropertyOptional({ type: WebMovie, nullable: false, example: 'Доктор Сон' })
-  movie_name?: WebMovie;
+  @ApiPropertyOptional({ type: 'string', nullable: false, example: 'Доктор Сон' })
+  movie_name?: string;
 }

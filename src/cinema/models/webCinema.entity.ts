@@ -30,5 +30,5 @@ export class WebCinema {
 
   @ApiProperty({ type: 'string', nullable: false, example: 'Сочи' })
   @Column({ type: 'varchar', nullable: false })
-  city_name: WebCity;
+  city_name: string;
 }

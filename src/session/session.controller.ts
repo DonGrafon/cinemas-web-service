@@ -13,18 +13,7 @@ import { UpdateSessionOptions } from './options/update-session-options';
 // @UseInterceptors(LoggingInterceptor)
 @Controller('sessions')
 export class SessionController {
-    cinemaService: any;
     constructor(private readonly sessionService: SessionService) {
-    }
-  
-    @Get()
-    search(@Query() searchOptions: SearchSessionOptions): Observable<WebSession[]> {
-      return this.sessionService.search(searchOptions)
-        .pipe(
-          catchError(err => {
-            throw new InternalServerErrorException(err.response || err);
-          }),
-        );
     }
   
     @Get(':id')
@@ -43,7 +32,7 @@ export class SessionController {
   
     @Delete(':id')
     delete(@Param('id') id: number): Observable<DeleteResult> {
-      return this.cinemaService.delete(id)
+      return this.sessionService.delete(id)
         .pipe(
           catchError(err => {
             if (err.name === 'EntityNotFound') {
@@ -56,7 +45,7 @@ export class SessionController {
   
     @Post()
     create(@Body() options: CreateSessionOptions): Observable<WebSession> {
-      return this.cinemaService.create(options)
+      return this.sessionService.create(options)
       .pipe(
           catchError(err => {
             throw new InternalServerErrorException(err.response || err);
@@ -66,7 +55,7 @@ export class SessionController {
   
     @Put(':id')
     update(@Param('id') id: number, @Body() options: UpdateSessionOptions): Observable<WebSession> {
-      return this.cinemaService.update(id, options)
+      return this.sessionService.update(id, options)
         .pipe(
           catchError(err => {
             throw new InternalServerErrorException(err.response || err);

@@ -6,6 +6,6 @@ export class WebCreateCinemaOptions {
     readonly amount_of_places?: number;
     readonly threeD?: boolean;
     readonly adress: string;
-    readonly city_name: WebCity;
+    readonly city_name: string;
   }
   

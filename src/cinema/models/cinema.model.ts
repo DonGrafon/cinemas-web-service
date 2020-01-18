@@ -21,5 +21,5 @@ export class Cinema {
   adress: string;
 
   @ApiProperty({ type: 'string', nullable: false, example: 'Сочи' })
-  WebCity_name: WebCity;
+  city_name: string;
 }

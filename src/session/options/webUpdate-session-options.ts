@@ -4,6 +4,6 @@ import { WebMovie } from "../models/webMovie.model";
 export class WebUpdateSessionOptions {
   price?: number;
   places?: number;
-  cinema_name?: Cinema;
-  movie_name?: WebMovie;
+  cinema_name?: string;
+  movie_name?: string;
 }

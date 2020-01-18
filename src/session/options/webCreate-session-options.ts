@@ -7,6 +7,6 @@ export class WebCreateSessionOptions {
     readonly price: number;
     readonly places: number;
     readonly movie_format: MovieFormat;
-    readonly cinema_name: Cinema;
-    readonly movie_name: WebMovie;
+    readonly cinema_name: string;
+    readonly movie_name: string;
   }

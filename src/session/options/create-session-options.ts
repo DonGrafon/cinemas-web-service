@@ -20,9 +20,9 @@ export class CreateSessionOptions {
   @ApiProperty({ required: true, nullable: false, type: 'string', enum: Object.values(MovieFormat), example: MovieFormat.threeD })
   movie_format: MovieFormat;
 
-  @ApiProperty({ type: Cinema, nullable: false, example: 'Пять звезд' })
-  cinema_name: Cinema;
+  @ApiProperty({ type: 'string', nullable: false, example: 'Пять звезд' })
+  cinema_name: string;
   
-  @ApiProperty({ type: WebMovie, nullable: false, example: 'Доктор Сон' })
-  movie_name: WebMovie;
+  @ApiProperty({ type: 'string', nullable: false, example: 'Доктор Сон' })
+  movie_name: string;
 }

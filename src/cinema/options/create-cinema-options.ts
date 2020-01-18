@@ -18,5 +18,5 @@ export class CreateCinemaOptions {
   readonly adress: string;
 
   @ApiProperty({ type: 'string', nullable: false, example: 'Сочи' })
-  readonly city_name: WebCity;
+  readonly city_name: string;
 }

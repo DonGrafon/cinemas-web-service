@@ -27,10 +27,10 @@ export class WebSession {
   movie_format: MovieFormat;
 
   @Column({ type: 'varchar', nullable: false })
-  @ApiProperty({ type: Cinema, nullable: false, example: 'Пять звезд' })
-  cinema_name: Cinema;
+  @ApiProperty({ type: 'string', nullable: false, example: 'Пять звезд' })
+  cinema_name: string;
   
   @Column({ type: 'varchar', nullable: false })
-  @ApiProperty({ type: WebMovie, nullable: false, example: 'Доктор Сон' })
-  movie_name: WebMovie;
+  @ApiProperty({ type: 'string', nullable: false, example: 'Доктор Сон' })
+  movie_name: string;
 }
